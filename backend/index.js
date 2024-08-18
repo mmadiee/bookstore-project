@@ -10,18 +10,12 @@ const app = express();
 app.use(express.json());
 
 //Middleware for handling CORS POLICY
-app.use(
-    cors({
-        origin: 'http://localhost:5555',
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type'],
-    })
-)
+app.use(cors())
 
 app.get('/', (req, res) => {
     console.log(req)
     return res.status(234).send('Welcome to MERN stack tutorial')
-}); 
+});
 
 app.use('/books', booksRoute)
 
@@ -32,8 +26,8 @@ mongoose
         console.log("App connected to the database")
         app.listen(PORT, () => {
             console.log(`App is listening to port: ${PORT}`)
-        })        
+        })
     })
-    .catch((error) =>{
+    .catch((error) => {
         console.log(error);
     })
