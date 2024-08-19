@@ -28,15 +28,15 @@ export default function EditBooks() {
         })
   }, [id])
 
-  const handleSaveBook = () => {
+  const handleEditBook = () => {
     const data = {
       title,
       author,
       publishYear,
-    };
+    };  
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate('/');        
@@ -81,7 +81,7 @@ export default function EditBooks() {
                 className="border-2 border-gray-500 px-4 py-2 w-full"
             />
         </div>
-        <button className="p-2 bg-sky-300 m-8" onClick={handleSaveBook}>Save</button>
+        <button className="p-2 bg-sky-300 m-8" onClick={handleEditBook}>Save</button>
       </div>
     </div>
   );
