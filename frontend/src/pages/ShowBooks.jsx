@@ -1,3 +1,5 @@
+//Backend API
+import { BACKEND_API } from "../../config"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -12,7 +14,7 @@ export default function ShowBooks() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`${BACKEND_API}/books/${id}`)
       .then((response) => {
         setBook(response.data);
         setLoading(false);

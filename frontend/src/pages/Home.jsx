@@ -1,3 +1,5 @@
+//Backend API
+import { BACKEND_API } from "../../config"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/spinner";
@@ -13,7 +15,7 @@ export default function Home() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5555/books")
+      .get(`${BACKEND_API}/books`)
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);

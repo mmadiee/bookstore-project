@@ -1,3 +1,5 @@
+//Backend API
+import { BACKEND_API } from "../../config"
 import { useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/spinner";
@@ -15,7 +17,7 @@ export default function EditBooks() {
   useEffect(() => {
     setLoading(true)
     axios
-        .get(`http://localhost:5555/books/${id}`)
+        .get(`${BACKEND_API}/books/${id}`)
         .then((response) => {
             setTitle(response.data.title)
             setAuthor(response.data.author)

@@ -1,3 +1,5 @@
+//Backend API
+import { BACKEND_API } from "../../config"
 import { useState } from "react";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/spinner";
@@ -12,7 +14,7 @@ export default function DeleteBooks() {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`${BACKEND_API}/books/${id}`)
       .then(() => {
         setLoading(false);
         navigate("/");

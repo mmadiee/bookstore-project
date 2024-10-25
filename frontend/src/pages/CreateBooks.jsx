@@ -1,3 +1,5 @@
+//Backend API
+import { BACKEND_API } from "../../config"
 import { useState } from "react";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/spinner";
@@ -18,7 +20,7 @@ export default function CreateBooks() {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .post(`${BACKEND_API}/books`, data)
       .then(() => {
         setLoading(false);
         navigate('/');        
