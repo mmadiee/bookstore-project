@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        baskervville: ['"Baskervville SC"', 'serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      colors: {
+        'raisin-black': '#2a201e',
+        bone: '#ddd3c5',
+      },
+    },
   },
   plugins: [],
 }
